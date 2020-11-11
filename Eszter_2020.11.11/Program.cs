@@ -16,7 +16,7 @@ namespace Eszter_2020._11._11
 
         }
 
-        //Függvény: 1 karakter alkít át sms számmá
+        //Függvény: 1 karaktert alakít át sms számmá
         static string CharToSMS(string kar)
         {
             if (kar == "A" || kar == "B" || kar == "C")
