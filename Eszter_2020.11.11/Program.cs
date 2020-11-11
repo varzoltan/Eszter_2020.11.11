@@ -24,5 +24,5 @@ namespace Eszter_2020._11._11
                 return "2";
             }
         }
-    }//
+    }
 }
