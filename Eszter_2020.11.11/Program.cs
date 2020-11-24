@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Eszter_2020._11._11
 {
@@ -22,8 +23,25 @@ namespace Eszter_2020._11._11
             string osszefuz = null;
             for (int i = 0;i<szo.Length;i++)
             {
-                osszefuz = CharToSMS(szo[i].ToString());
+                //osszefuz = CharToSMS(szo[i].ToString());
+                osszefuz += CharToSMS(szo.Substring(i, 1));
             }
+            Console.WriteLine($"2.feladat\n{osszefuz}");
+
+            //3.feladat
+            string[] beolvas = new string[600];
+            StreamReader olvas = new StreamReader(@"C:\Users\Rendszergazda\Desktop\2007-majus\szavak.txt");
+            int n = 0;
+            while (!olvas.EndOfStream)
+            {
+                //string sor = olvas.ReadLine();
+                beolvas[n] = olvas.ReadLine();
+                n++;
+            }
+            Console.WriteLine("3.feladat\nBeolvasás kész!");
+
+
+            olvas.Close();
             Console.ReadKey();
         }
 
