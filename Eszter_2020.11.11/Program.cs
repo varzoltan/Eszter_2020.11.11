@@ -38,10 +38,44 @@ namespace Eszter_2020._11._11
                 beolvas[n] = olvas.ReadLine();
                 n++;
             }
-            Console.WriteLine("3.feladat\nBeolvasás kész!");
-
-
+            Console.WriteLine("3.feladat\nBeolvasás kész!");          
             olvas.Close();
+
+            //4.feladat
+            int leghosszabb = beolvas[0].Length;
+            int csere = 0;
+            for (int i = 1; i<n; i++)
+            {
+                if (leghosszabb < beolvas[i].Length)
+                {                  
+                    leghosszabb = beolvas[i].Length;
+                    csere = i;
+                }
+            }
+            Console.WriteLine($"4. feladat\nA leghosszabb szó {beolvas[csere]} hossza: {leghosszabb}");
+
+            //5.feladat
+            int darab = 0;
+            for (int i = 0; i<n; i++)
+            {
+                if (beolvas[i].Length <= 5)
+                {
+                    darab++;
+                }
+            }
+            Console.WriteLine($"5.feladat\nEnnyi rövid szó van a fájlban: {darab}");
+
+            //6.feladat
+            StreamWriter ir = new StreamWriter(@"C:\Users\Rendszergazda\Desktop\2007-majus\kodok.txt");
+            string osszefuzes = null;
+            for (int i = 0;i<n;i++)
+            {
+                for (int k = 0; k<beolvas[i].Length;k++)
+                {
+
+                }
+            }
+            ir.Close();
             Console.ReadKey();
         }
 
