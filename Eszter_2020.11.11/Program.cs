@@ -66,16 +66,35 @@ namespace Eszter_2020._11._11
             Console.WriteLine($"5.feladat\nEnnyi rövid szó van a fájlban: {darab}");
 
             //6.feladat
+            Console.WriteLine("6. feladat");
+            string[] kodok = new string[n];
             StreamWriter ir = new StreamWriter(@"C:\Users\Rendszergazda\Desktop\2007-majus\kodok.txt");
             string osszefuzes = null;
             for (int i = 0;i<n;i++)
             {
                 for (int k = 0; k<beolvas[i].Length;k++)
                 {
+                    //osszefuzes = osszefuzes + CharToSMS(beolvas[i][k].ToString());
+                    osszefuzes += CharToSMS(beolvas[i][k].ToString().ToUpper());
+                }
+                ir.WriteLine(osszefuzes);
+                kodok[i] = osszefuzes;
+                osszefuzes = null;
+            }           
+            ir.Close();
+            Console.WriteLine("Kiírás kész!");
 
+            //7.feladat
+            Console.Write("Kérem adjon meg egy számsort:");
+            string szamsor = Console.ReadLine();
+            for (int i = 0; i<n;i++)
+            {
+                if (kodok[i] )
+                {
+                    
                 }
             }
-            ir.Close();
+            
             Console.ReadKey();
         }
 
