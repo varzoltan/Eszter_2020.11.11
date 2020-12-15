@@ -89,12 +89,41 @@ namespace Eszter_2020._11._11
             string szamsor = Console.ReadLine();
             for (int i = 0; i<n;i++)
             {
-                if (kodok[i] )
+                if (kodok[i] == szamsor)
                 {
-                    
+                    Console.WriteLine($"{szamsor}-hoz tartozó szavak: {beolvas[i]}");
                 }
             }
-            
+
+            //8.feladat
+            string[] kodok_index = new string[n];//Létrehozok egy új tömböt
+            for (int i=0;i<n;i++)
+            {
+                kodok_index[i] = kodok[i] + " " + i;
+            }
+            Array.Sort(kodok_index);//Listaelem sorbarendezése
+            Array.Sort(kodok);
+            bool volt = false;
+            for (int i = 0;i<n-1;i++)
+            {
+                //1.lépés: szétválasztás
+                string[] db = kodok_index[i].Split(' ');
+                int index = int.Parse(db[1]);
+                if (db[0] == kodok[i+1])
+                {
+                    Console.Write($"{beolvas[index]} : {db[0]}; ");
+                    volt = true;
+                }
+                if(db[0] != kodok[i + 1] && volt)
+                {
+                    Console.Write($"{beolvas[index]} : {db[0]}; ");
+                    volt = false;
+                }
+            }
+            /*for (int i = 0;i<10;i++)
+            {
+                Console.WriteLine(kodok_index[i]);
+            }*/
             Console.ReadKey();
         }
 
