@@ -104,6 +104,9 @@ namespace Eszter_2020._11._11
             Array.Sort(kodok_index);//Listaelem sorbarendezése
             Array.Sort(kodok);
             bool volt = false;
+            int max = 0;//megőrizzük a legtöbb kódot tartalmazó szavakat
+            int ujmax = 0;//segédváltoző
+            string kod = null;
             for (int i = 0;i<n-1;i++)
             {
                 //1.lépés: szétválasztás
@@ -113,11 +116,31 @@ namespace Eszter_2020._11._11
                 {
                     Console.Write($"{beolvas[index]} : {db[0]}; ");
                     volt = true;
+                    ujmax++;
                 }
-                if(db[0] != kodok[i + 1] && volt)
+                if(db[0] != kodok[i + 1] && volt==true)
                 {
                     Console.Write($"{beolvas[index]} : {db[0]}; ");
                     volt = false;
+                    ujmax++;
+                    if (max < ujmax)
+                    {
+                        max = ujmax;
+                        kod = kodok[i];
+                    }
+                    ujmax = 0;
+                }
+            }
+
+            //9.feladat
+            Console.WriteLine($"\n9.feladat\nA legtöbb szóhoz tartozó kód: {kod}");
+            for (int i = 0;i<n;i++)
+            {
+                string[] db = kodok_index[i].Split(' ');
+                int index = int.Parse(db[1]);
+                if (kod == db[0])
+                {
+                    Console.WriteLine($"{beolvas[index]}");
                 }
             }
             /*for (int i = 0;i<10;i++)
